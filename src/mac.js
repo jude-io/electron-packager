@@ -387,6 +387,9 @@ function createSignOpts (properties, platform, app, version, notarize, quiet) {
       'options. It has been enabled for you but you should enable it in your config.')
     signOpts.hardenedRuntime = true
   }
+  if (notarize) {
+    signOpts.gatekeeperAssess = false
+  }
 
   return signOpts
 }
