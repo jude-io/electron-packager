@@ -56,8 +56,8 @@ class Pruner {
 }
 
 function isNodeModuleFolder (pathToCheck) {
-  return path.basename(path.dirname(pathToCheck)) === 'node_modules' ||
-    (path.basename(path.dirname(pathToCheck)).startsWith('@') && path.basename(path.resolve(pathToCheck, `..${path.sep}..`)) === 'node_modules')
+  return (path.basename(path.dirname(pathToCheck)) === 'node_modules' ||
+    (path.basename(path.dirname(pathToCheck)).startsWith('@') && path.basename(path.resolve(pathToCheck, `..${path.sep}..`)) === 'node_modules')) && path.dirname(pathToCheck).split(path.sep).filter(dir => dir === "node_modules").length === 1;
 }
 
 module.exports = {
