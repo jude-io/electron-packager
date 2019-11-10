@@ -388,7 +388,7 @@ function createSignOpts (properties, platform, app, version, notarize, quiet) {
     signOpts.hardenedRuntime = true
   }
   if (notarize) {
-    signOpts.gatekeeperAssess = false
+    signOpts['gatekeeper-assess'] = false
   }
 
   return signOpts
